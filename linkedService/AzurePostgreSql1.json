@@ -6,7 +6,7 @@
 		"type": "AzurePostgreSql",
 		"typeProperties": {
 			"connectionString": "host=kockpitpg.postgres.database.azure.com;port=5432;database=parijatdb;uid=postgres;encryptionmethod=0",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJmMTljN2Y2Ny1kNjM1LTQ0ODUtYWQ1NC1hMGJjMDMyNTQzOWUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5NjdjZWZkYy1kYzk2LTQ4OTctYTE4Yi0wMDFmYjAwZGNlMDQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "IRSH-Demo",
