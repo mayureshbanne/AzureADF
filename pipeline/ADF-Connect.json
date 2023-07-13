@@ -18,7 +18,7 @@
 					"source": {
 						"type": "SqlServerSource",
 						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+						"partitionOption": "PhysicalPartitionsOfTable"
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
@@ -55,7 +55,7 @@
 				]
 			},
 			{
-				"name": "Task Sucessfull",
+				"name": "Web1",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
@@ -77,16 +77,14 @@
 					"url": "https://adf-testing.azurewebsites.net:443/api/Email_test/triggers/When_a_HTTP_request_is_received/invoke?api-version=2022-05-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=6k9F0fhYDgVw-pTxvLu9aDF4mpmottM5rgUK52FqnqY",
 					"method": "POST",
 					"body": {
-						"value": "{\n    \"Subject\": \"Task Sucessfull\",\n    \"Messege\": \"Task Sucessfully executed\",\n    \"DataFactoryName\": \"@{pipeline().DataFactory}\",\n    \"PipelineName\": \"@{pipeline().Pipeline}\",\n    \"Report\": \"@{pipeline().TriggerName}\"\n}",
+						"value": "{\n    \"To\": \"mayuresh.banneteamcomputers.com\",\n    \"Subject\": \"Task Sucessfull\",\n    \"Messege\": \"Task Sucessfully executed\",\n    \"DataFactoryName\": \"@{pipeline().DataFactory}\",\n    \"PipelineName\": \"@{pipeline().Pipeline}\",\n    \"Report\": \"@{pipeline().TriggerName}\"\n}",
 						"type": "Expression"
 					}
 				}
 			},
 			{
-				"name": "Task Failed",
+				"name": "Web2",
 				"type": "WebActivity",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "ParijatDB-Testing",
@@ -107,12 +105,17 @@
 					"url": "https://adf-testing.azurewebsites.net:443/api/Email_test_Failed/triggers/When_a_HTTP_request_is_received/invoke?api-version=2022-05-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=uC6SnmNVinDhbPZNcidJWgpW1EDl68zPujfqZpYNRnM",
 					"method": "POST",
 					"body": {
-						"value": "{\n    \"To\": \"mayuresh.banneteamcomputers.com\",\n    \"Subject\": \"Task Sucessfull\",\n    \"Messege\": \"Task Sucessfully executed\",\n    \"DataFactoryName\": \"@{pipeline().DataFactory}\",\n    \"PipelineName\": \"@{pipeline().Pipeline}\",\n    \"Report\": \"@{pipeline().TriggerName}\"\n}",
+						"value": "{\n    \"To\": \"mayuresh.banneteamcomputers.com\",\n    \"Subject\": \"Task failed\",\n    \"Messege\": \"Task Sucessfully failed\",\n    \"DataFactoryName\": \"@{pipeline().DataFactory}\",\n    \"PipelineName\": \"@{pipeline().Pipeline}\",\n    \"Report\": \"@{activity('ParijatDB-Testing').Error.Message}\"\n}",
 						"type": "Expression"
 					}
 				}
 			}
 		],
+		"variables": {
+			"timestamp": {
+				"type": "String"
+			}
+		},
 		"annotations": [],
 		"lastPublishTime": "2023-07-12T12:59:16Z"
 	},
