@@ -10,6 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "abcd.csv",
+				"folderPath": "test",
 				"container": "parijatlivedb"
 			},
 			"columnDelimiter": ",",
