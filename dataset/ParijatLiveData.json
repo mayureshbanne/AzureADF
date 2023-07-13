@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "ParijatLiveDB.txt",
 				"container": "parijatlivedb"
 			},
 			"columnDelimiter": ",",
