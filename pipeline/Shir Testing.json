@@ -20,7 +20,7 @@
 					},
 					{
 						"name": "Destination",
-						"value": "public.@{'access control'}"
+						"value": "dbo.@{'access control'}"
 					}
 				],
 				"typeProperties": {
