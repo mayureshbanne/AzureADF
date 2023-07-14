@@ -13,7 +13,16 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": ".Access Control"
+					},
+					{
+						"name": "Destination",
+						"value": "public.@{'access control'}"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
@@ -45,7 +54,13 @@
 				"outputs": [
 					{
 						"referenceName": "SHIR_Postgres",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"tablename": {
+								"value": "access control",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
