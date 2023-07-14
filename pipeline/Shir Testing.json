@@ -48,7 +48,13 @@
 				"inputs": [
 					{
 						"referenceName": "SQL_SHIR_Testing",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"tablename": {
+								"value": "access control",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
