@@ -15,8 +15,11 @@
 		"type": "AzurePostgreSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "dbo",
-			"table": "@dataset().tablename"
+			"schema": "test",
+			"table": {
+				"value": "@dataset().tablename",
+				"type": "Expression"
+			}
 		}
 	}
 }
