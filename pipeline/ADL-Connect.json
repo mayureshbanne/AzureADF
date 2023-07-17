@@ -137,6 +137,12 @@
 						"dependencyConditions": [
 							"Completed"
 						]
+					},
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Completed"
+						]
 					}
 				],
 				"policy": {
@@ -265,16 +271,9 @@
 			{
 				"name": "Lookup1",
 				"type": "Lookup",
-				"dependsOn": [
-					{
-						"activity": "Copy data1",
-						"dependencyConditions": [
-							"Completed"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
-					"timeout": "0.12:00:00",
+					"timeout": "1.12:00:00",
 					"retry": 0,
 					"retryIntervalInSeconds": 30,
 					"secureOutput": false,
@@ -284,7 +283,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzurePostgreSqlSource",
-						"query": "create table \"control access\"(\"Role ID\" text NOT NULL,\r\n\t\t\t\t\t\t\t \"Company Name\" text NOT NULL,\r\n\t\t\t\t\t\t\t \"Scope\" text NOT NULL,\r\n\t\t\t\t\t\t\t \"App ID\" text NOT NULL,\r\n\t\t\t\t\t\t\t \"timestamp\" text NOT NULL,\r\n\t\t\t\t\t\t\t \"User Security ID\" text NOT NULL);",
+						"query": "create table \"control access\"(\"Role ID\" text ,\r\n                      \"Company Name\" text ,\r\n                      \"Scope\" text ,\r\n                      \"App ID\" text ,\r\n                      \"timestamp\" text ,\r\n                      \"User Security ID\" text );\r\n\r\n",
 						"partitionOption": "None"
 					},
 					"dataset": {
