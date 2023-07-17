@@ -288,12 +288,10 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "AzurePostgreSqlTable1",
-						"type": "DatasetReference",
-						"parameters": {
-							"tablename": "control access"
-						}
-					}
+						"referenceName": "AzurePostgreSqlTable2",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
 				}
 			}
 		],
