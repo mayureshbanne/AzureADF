@@ -93,7 +93,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzurePostgreSqlSource",
-						"query": "CREATE SCHEMA dbo;    ",
+						"query": "CREATE SCHEMA dbo;    \n",
 						"partitionOption": "None"
 					},
 					"dataset": {
