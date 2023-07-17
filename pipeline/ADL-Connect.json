@@ -131,7 +131,14 @@
 			{
 				"name": "Copy data2",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -192,6 +199,40 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource",
+						"query": "create table \"control access\"(\"Role ID\" text,\r\n\t\t\t\t\t\t\t \"Company Name\" text,\r\n\t\t\t\t\t\t\t \"Scope\" text,\r\n\t\t\t\t\t\t\t \"App ID\" text,\r\n\t\t\t\t\t\t\t \"timestamp\" text,\r\n\t\t\t\t\t\t\t \"User Security ID\" text);",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzurePostgreSqlTable1",
+						"type": "DatasetReference",
+						"parameters": {
+							"tablename": "control access"
+						}
+					}
+				}
 			}
 		],
 		"annotations": [],
