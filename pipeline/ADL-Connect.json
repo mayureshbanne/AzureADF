@@ -16,15 +16,9 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
@@ -123,7 +117,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ParijatLiveData",
+						"referenceName": "SQLDataNOSchema",
 						"type": "DatasetReference"
 					}
 				],
@@ -174,67 +168,6 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"name": "timestamp",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "timestamp"
-								}
-							},
-							{
-								"source": {
-									"name": "User Security ID",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "User Security ID"
-								}
-							},
-							{
-								"source": {
-									"name": "Role ID",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Role ID"
-								}
-							},
-							{
-								"source": {
-									"name": "Company Name",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Company Name"
-								}
-							},
-							{
-								"source": {
-									"name": "Scope",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Scope"
-								}
-							},
-							{
-								"source": {
-									"name": "App ID",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "App ID"
-								}
-							}
-						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
