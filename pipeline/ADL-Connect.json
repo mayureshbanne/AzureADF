@@ -178,7 +178,6 @@
 							{
 								"source": {
 									"name": "timestamp",
-									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
