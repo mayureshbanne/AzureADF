@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "SqlServerTable1",
+						"referenceName": "SQLDataNOSchema",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -42,7 +42,9 @@
 				"     updateable:false,",
 				"     upsertable:false,",
 				"     recreate:true,",
-				"     format: 'table') ~> sink1"
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}

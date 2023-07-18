@@ -16,9 +16,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "SqlServerSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
@@ -117,7 +123,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SQLDataNOSchema",
+						"referenceName": "ParijatLiveData",
 						"type": "DatasetReference"
 					}
 				],
@@ -133,7 +139,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Lookup1",
+						"activity": "Copy data1",
 						"dependencyConditions": [
 							"Completed"
 						]
@@ -171,62 +177,12 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "Role ID",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Role ID",
-									"type": "String",
-									"physicalType": "text"
-								}
-							},
-							{
-								"source": {
-									"name": "Company Name",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Company Name",
-									"type": "String",
-									"physicalType": "text"
-								}
-							},
-							{
-								"source": {
-									"name": "Scope",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Scope",
-									"type": "String",
-									"physicalType": "text"
-								}
-							},
-							{
-								"source": {
-									"name": "App ID",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "App ID",
-									"type": "String",
-									"physicalType": "text"
-								}
-							},
-							{
-								"source": {
 									"name": "timestamp",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "timestamp",
-									"type": "String",
-									"physicalType": "text"
+									"name": "timestamp"
 								}
 							},
 							{
@@ -236,9 +192,47 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "User Security ID",
+									"name": "User Security ID"
+								}
+							},
+							{
+								"source": {
+									"name": "Role ID",
 									"type": "String",
-									"physicalType": "text"
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Role ID"
+								}
+							},
+							{
+								"source": {
+									"name": "Company Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Company Name"
+								}
+							},
+							{
+								"source": {
+									"name": "Scope",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Scope"
+								}
+							},
+							{
+								"source": {
+									"name": "App ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "App ID"
 								}
 							}
 						],
@@ -261,38 +255,6 @@
 						"type": "DatasetReference"
 					}
 				]
-			},
-			{
-				"name": "Lookup1",
-				"type": "Lookup",
-				"dependsOn": [
-					{
-						"activity": "Copy data1",
-						"dependencyConditions": [
-							"Completed"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "1.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "AzurePostgreSqlSource",
-						"query": "create table \"control access\"(\"Role ID\" \"text\" NOT NULL,\r\n                      \"Company Name\" \"text\" NOT NULL,\r\n                      \"Scope\" \"text\" NOT NULL,\r\n                      \"App ID\" \"text\" NOT NULL,\r\n                      \"timestamp\" \"text\" NOT NULL,\r\n                      \"User Security ID\" \"text\" NOT NULL);",
-						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "AzurePostgreSqlTable2",
-						"type": "DatasetReference"
-					},
-					"firstRowOnly": false
-				}
 			}
 		],
 		"annotations": [],

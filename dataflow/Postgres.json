@@ -40,7 +40,7 @@
 				"     inferDriftedColumnTypes: true,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> source1",
-				"source1 derive(timestamp = fromBase64(toString(toBinary('timestamp')))/* toTimestamp(byName(fromBase64('timestamp'))) */) ~> derivedColumn1",
+				"source1 derive(timestamp = toTimestamp(byName('timestamp'))) ~> derivedColumn1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",

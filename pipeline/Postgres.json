@@ -47,10 +47,7 @@
 						"referenceName": "AzurePostgreSqlTable1",
 						"type": "DatasetReference",
 						"parameters": {
-							"tablename": {
-								"value": "access control",
-								"type": "Expression"
-							}
+							"tablename": "control access"
 						}
 					}
 				]
