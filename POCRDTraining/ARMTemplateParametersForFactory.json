@@ -11,20 +11,62 @@
 		"AzureBlobStorage1_connectionString": {
 			"value": ""
 		},
+		"AzureFunction1_functionKey": {
+			"value": ""
+		},
 		"AzurePostgreSql1_connectionString": {
 			"value": ""
 		},
 		"AzurePostgreSql2_connectionString": {
 			"value": ""
 		},
+		"AzurePostgreSql3_connectionString": {
+			"value": ""
+		},
+		"AzurePostgreSql3_SHIR_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"value": ""
+		},
 		"PostgreSql1_connectionString": {
+			"value": ""
+		},
+		"SQL_Cloud_Connect_Rev_connectionString": {
+			"value": ""
+		},
+		"SQL_OnPrem_connectionString": {
 			"value": ""
 		},
 		"SqlServer1_connectionString": {
 			"value": ""
 		},
+		"SqlServerOnPrem_connectionString": {
+			"value": ""
+		},
 		"ADLS_POC_RD_properties_typeProperties_url": {
 			"value": "https://rdpoctraining.dfs.core.windows.net/"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"value": "https://rdtestingpoctraining.azurewebsites.net"
+		},
+		"AzureKeyVaultBlobStorage_properties_typeProperties_connectionString_secretName": {
+			"value": "ADF-Testing"
+		},
+		"KeyVaultSQLParijat_properties_typeProperties_connectionString_secretName": {
+			"value": "ADF-SQLTesting"
+		},
+		"SQL_OnCloud_Connection_Key_Vault_properties_typeProperties_baseUrl": {
+			"value": "https://POCVaultTraining.vault.azure.net/"
+		},
+		"Custom events Trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/9b5fcc15-c260-4ff3-a5f3-0af393d83fa8/resourceGroups/RD_POC/providers/Microsoft.EventGrid/topics/EventGridADF"
+		},
+		"Storage_Event_Trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/9b5fcc15-c260-4ff3-a5f3-0af393d83fa8/resourceGroups/RD_POC/providers/Microsoft.Storage/storageAccounts/rdpoctraining"
 		}
 	}
 }

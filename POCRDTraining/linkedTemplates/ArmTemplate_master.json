@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
+		"AzureFunction1_functionKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'functionKey' of 'AzureFunction1'"
+		},
 		"AzurePostgreSql1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzurePostgreSql1'"
@@ -23,17 +27,69 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzurePostgreSql2'"
 		},
+		"AzurePostgreSql3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzurePostgreSql3'"
+		},
+		"AzurePostgreSql3_SHIR_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzurePostgreSql3_SHIR'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
+		},
 		"PostgreSql1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'PostgreSql1'"
+		},
+		"SQL_Cloud_Connect_Rev_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SQL_Cloud_Connect_Rev'"
+		},
+		"SQL_OnPrem_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SQL_OnPrem'"
 		},
 		"SqlServer1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'SqlServer1'"
 		},
+		"SqlServerOnPrem_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServerOnPrem'"
+		},
 		"ADLS_POC_RD_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://rdpoctraining.dfs.core.windows.net/"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"type": "string",
+			"defaultValue": "https://rdtestingpoctraining.azurewebsites.net"
+		},
+		"AzureKeyVaultBlobStorage_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "ADF-Testing"
+		},
+		"KeyVaultSQLParijat_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "ADF-SQLTesting"
+		},
+		"SQL_OnCloud_Connection_Key_Vault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://POCVaultTraining.vault.azure.net/"
+		},
+		"Custom events Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/9b5fcc15-c260-4ff3-a5f3-0af393d83fa8/resourceGroups/RD_POC/providers/Microsoft.EventGrid/topics/EventGridADF"
+		},
+		"Storage_Event_Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/9b5fcc15-c260-4ff3-a5f3-0af393d83fa8/resourceGroups/RD_POC/providers/Microsoft.Storage/storageAccounts/rdpoctraining"
 		},
 		"containerUri": {
 			"type": "string",
@@ -65,23 +121,29 @@
 					"ADLS_POC_RD_accountKey": {
 						"value": "[parameters('ADLS_POC_RD_accountKey')]"
 					},
+					"AzureFunction1_functionKey": {
+						"value": "[parameters('AzureFunction1_functionKey')]"
+					},
 					"AzurePostgreSql1_connectionString": {
 						"value": "[parameters('AzurePostgreSql1_connectionString')]"
-					},
-					"AzurePostgreSql2_connectionString": {
-						"value": "[parameters('AzurePostgreSql2_connectionString')]"
 					},
 					"SqlServer1_connectionString": {
 						"value": "[parameters('SqlServer1_connectionString')]"
 					},
+					"SqlServerOnPrem_connectionString": {
+						"value": "[parameters('SqlServerOnPrem_connectionString')]"
+					},
 					"AzureBlobStorage1_connectionString": {
 						"value": "[parameters('AzureBlobStorage1_connectionString')]"
 					},
-					"PostgreSql1_connectionString": {
-						"value": "[parameters('PostgreSql1_connectionString')]"
-					},
 					"ADLS_POC_RD_properties_typeProperties_url": {
 						"value": "[parameters('ADLS_POC_RD_properties_typeProperties_url')]"
+					},
+					"AzureFunction1_properties_typeProperties_functionAppUrl": {
+						"value": "[parameters('AzureFunction1_properties_typeProperties_functionAppUrl')]"
+					},
+					"SQL_OnCloud_Connection_Key_Vault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('SQL_OnCloud_Connection_Key_Vault_properties_typeProperties_baseUrl')]"
 					}
 				}
 			},
@@ -100,11 +162,87 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzurePostgreSql2_connectionString": {
+						"value": "[parameters('AzurePostgreSql2_connectionString')]"
+					},
+					"AzurePostgreSql3_connectionString": {
+						"value": "[parameters('AzurePostgreSql3_connectionString')]"
+					},
+					"AzurePostgreSql3_SHIR_connectionString": {
+						"value": "[parameters('AzurePostgreSql3_SHIR_connectionString')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"AzureSqlDatabase2_connectionString": {
+						"value": "[parameters('AzureSqlDatabase2_connectionString')]"
+					},
+					"PostgreSql1_connectionString": {
+						"value": "[parameters('PostgreSql1_connectionString')]"
+					},
+					"SQL_Cloud_Connect_Rev_connectionString": {
+						"value": "[parameters('SQL_Cloud_Connect_Rev_connectionString')]"
+					},
+					"SQL_OnPrem_connectionString": {
+						"value": "[parameters('SQL_OnPrem_connectionString')]"
+					},
+					"AzureKeyVaultBlobStorage_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('AzureKeyVaultBlobStorage_properties_typeProperties_connectionString_secretName')]"
+					},
+					"KeyVaultSQLParijat_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('KeyVaultSQLParijat_properties_typeProperties_connectionString_secretName')]"
 					}
 				}
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'POCRDTraining_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "POCRDTraining_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'POCRDTraining_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "POCRDTraining_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Custom events Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('Custom events Trigger_properties_typeProperties_scope')]"
+					},
+					"Storage_Event_Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('Storage_Event_Trigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'POCRDTraining_ArmTemplate_2')]"
 			]
 		}
 	]
