@@ -1,0 +1,23 @@
+{
+	"name": "KeyVaultSQLParijat",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "SQL_OnCloud_Connection_Key_Vault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "ADF-SQLTesting",
+				"secretVersion": "649251a21a9443b19e604123734fa202"
+			}
+		},
+		"connectVia": {
+			"referenceName": "SHIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

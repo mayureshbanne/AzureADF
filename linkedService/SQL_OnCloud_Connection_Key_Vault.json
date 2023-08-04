@@ -1,0 +1,11 @@
+{
+	"name": "SQL_OnCloud_Connection_Key_Vault",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://POCVaultTraining.vault.azure.net/"
+		}
+	}
+}

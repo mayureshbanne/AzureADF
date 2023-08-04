@@ -1,0 +1,17 @@
+{
+	"name": "AzurePostgreSqlTable3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql3_SHIR",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "public",
+			"table": "access control"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

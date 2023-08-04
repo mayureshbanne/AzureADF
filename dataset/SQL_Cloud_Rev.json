@@ -1,0 +1,17 @@
+{
+	"name": "SQL_Cloud_Rev",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQL_Cloud_Connect_Rev",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "",
+			"table": "control access"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

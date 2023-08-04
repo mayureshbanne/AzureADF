@@ -1,0 +1,23 @@
+{
+	"name": "AzureKeyVaultBlobStorage",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "SQL_OnCloud_Connection_Key_Vault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "ADF-Testing",
+				"secretVersion": "d45fdfd2eeb94e7fb5df7e3c47ad99c2"
+			}
+		},
+		"connectVia": {
+			"referenceName": "SHIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

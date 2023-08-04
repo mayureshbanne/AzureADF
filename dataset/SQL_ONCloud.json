@@ -1,0 +1,43 @@
+{
+	"name": "SQL_ONCloud",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Role ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Company Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Scope",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "App ID",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "timestamp",
+				"type": "timestamp"
+			},
+			{
+				"name": "User Security ID",
+				"type": "uniqueidentifier"
+			}
+		],
+		"typeProperties": {
+			"schema": "",
+			"table": "control access"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,64 @@
+{
+	"name": "SQLCloud_PGCloud",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzurePostgreSQLSink",
+						"writeBatchSize": 1000000,
+						"writeBatchTimeout": "00:30:00",
+						"preCopyScript": {
+							"value": "create table \"access control\"(\"Role ID\" \"text\" NOT NULL,\n                      \"Company Name\" \"text\" NOT NULL,\n                      \"Scope\" \"text\" NOT NULL,\n                      \"App ID\" \"text\" NOT NULL,\n                      \"timestamp\" \"text\" NOT NULL,\n                      \"User Security ID\" \"text\" NOT NULL);",
+							"type": "Expression"
+						},
+						"writeMethod": "CopyCommand"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SQL_ONCloud",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "PG_ONCloud",
+						"type": "DatasetReference",
+						"parameters": {
+							"tablename": "control access"
+						}
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-07-24T05:12:08Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

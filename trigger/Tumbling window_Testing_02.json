@@ -1,0 +1,34 @@
+{
+	"name": "Tumbling window_Testing_02",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "SQL_OnPrem_SQLCloud",
+				"type": "PipelineReference"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 5,
+			"startTime": "2023-07-26T12:05:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": [
+				{
+					"type": "TumblingWindowTriggerDependencyReference",
+					"offset": "-0.00:03:00",
+					"referenceTrigger": {
+						"referenceName": "Tumbling window_Testing_01",
+						"type": "TriggerReference"
+					}
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"name": "SQL_OnPrem",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQL_OnPrem",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "",
+			"table": "Access Control"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
