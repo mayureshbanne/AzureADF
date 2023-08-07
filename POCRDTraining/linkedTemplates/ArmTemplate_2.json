@@ -13,6 +13,37 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/PG_ONCloud')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzurePostgreSql3_SHIR",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"tablename": {
+						"type": "string",
+						"defaultValue": "control access"
+					}
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": {
+						"value": "public",
+						"type": "Expression"
+					},
+					"table": {
+						"value": "@dataset().tablename",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ParijatLiveData')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1013,7 +1044,8 @@
 				"lastPublishTime": "2023-07-21T10:46:17Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SQL_OnPrem')]"
+				"[concat(variables('factoryId'), '/datasets/SQL_OnPrem')]",
+				"[concat(variables('factoryId'), '/datasets/PG_ONCloud')]"
 			]
 		},
 		{
@@ -1086,7 +1118,8 @@
 				"lastPublishTime": "2023-07-24T05:12:08Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SQL_ONCloud')]"
+				"[concat(variables('factoryId'), '/datasets/SQL_ONCloud')]",
+				"[concat(variables('factoryId'), '/datasets/PG_ONCloud')]"
 			]
 		},
 		{
@@ -1711,78 +1744,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SQL_Cloud_Rev')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SQlOnPrem_OnPremPG')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy data1",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "SqlServerSource",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "AzurePostgreSQLSink",
-								"writeBatchSize": 1000000,
-								"writeBatchTimeout": "00:30:00",
-								"preCopyScript": {
-									"value": "create table \"control access\"(\"Role ID\" \"text\" NOT NULL,\n                      \"Company Name\" \"text\" NOT NULL,\n                      \"Scope\" \"text\" NOT NULL,\n                      \"App ID\" \"text\" NOT NULL,\n                      \"timestamp\" \"text\" NOT NULL,\n                      \"User Security ID\" \"text\" NOT NULL);",
-									"type": "Expression"
-								},
-								"writeMethod": "CopyCommand"
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "SQL_OnPrem",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "Postgres_Testing_On_Prem",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"annotations": [],
-				"lastPublishTime": "2023-07-24T05:17:36Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SQL_OnPrem')]",
-				"[concat(variables('factoryId'), '/datasets/Postgres_Testing_On_Prem')]"
 			]
 		}
 	]
