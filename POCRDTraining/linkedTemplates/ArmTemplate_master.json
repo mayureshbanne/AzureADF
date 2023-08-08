@@ -91,6 +91,10 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/9b5fcc15-c260-4ff3-a5f3-0af393d83fa8/resourceGroups/RD_POC/providers/Microsoft.Storage/storageAccounts/rdpoctraining"
 		},
+		"Custom-events-trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/9b5fcc15-c260-4ff3-a5f3-0af393d83fa8/resourceGroups/RD_POC/providers/Microsoft.EventGrid/topics/EventGridADF"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -238,6 +242,9 @@
 					},
 					"Storage_Event_Trigger_properties_typeProperties_scope": {
 						"value": "[parameters('Storage_Event_Trigger_properties_typeProperties_scope')]"
+					},
+					"Custom-events-trigger_properties_typeProperties_scope": {
+						"value": "[parameters('Custom-events-trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
