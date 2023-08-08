@@ -21,7 +21,7 @@
 			"subjectBeginsWith": "",
 			"scope": "/subscriptions/9b5fcc15-c260-4ff3-a5f3-0af393d83fa8/resourceGroups/RD_POC/providers/Microsoft.EventGrid/topics/EventGridADF",
 			"events": [
-				"Successfully uploaded blob(s)"
+				"Successfully uploaded"
 			]
 		}
 	}
