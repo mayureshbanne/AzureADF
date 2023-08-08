@@ -63,10 +63,12 @@
 		],
 		"parameters": {
 			"fileRead": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "abcd.csv"
 			},
 			"filewritten": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "abcd.csv"
 			}
 		},
 		"annotations": [],
