@@ -19,9 +19,7 @@
 						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"wildcardFolderPath": "test",
-							"wildcardFileName": "abcd.csv",
+							"fileListPath": "parijatlivedb/test/abcd.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
