@@ -10,8 +10,8 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"fileRead": "abcd.csv\n",
-					"filewritten": "abcd.csv\n"
+					"fileRead": "@triggerBody().event.data.fileRead",
+					"filewritten": "@triggerBody().event.data.fileWritten"
 				}
 			}
 		],
