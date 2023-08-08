@@ -87,6 +87,14 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/9b5fcc15-c260-4ff3-a5f3-0af393d83fa8/resourceGroups/RD_POC/providers/Microsoft.EventGrid/topics/EventGridADF"
 		},
+		"Custom-events-trigger_properties_Storage_Cloud_Test_parameters_fileRead": {
+			"type": "string",
+			"defaultValue": "@triggerBody().event.data.fileRead"
+		},
+		"Custom-events-trigger_properties_Storage_Cloud_Test_parameters_filewritten": {
+			"type": "string",
+			"defaultValue": "@triggerBody().event.data.fileWritten"
+		},
 		"Custom-events-trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/9b5fcc15-c260-4ff3-a5f3-0af393d83fa8/resourceGroups/RD_POC/providers/Microsoft.EventGrid/topics/EventGridADF"
@@ -1814,12 +1822,10 @@
 				},
 				"parameters": {
 					"fileRead": {
-						"type": "string",
-						"defaultValue": "@triggerBody().event.data.fileread"
+						"type": "string"
 					},
 					"filewritten": {
-						"type": "string",
-						"defaultValue": "@triggerBody().event.data.filewritten"
+						"type": "string"
 					}
 				},
 				"annotations": [],
@@ -3131,7 +3137,10 @@
 							"referenceName": "Storage_Cloud_Test",
 							"type": "PipelineReference"
 						},
-						"parameters": {}
+						"parameters": {
+							"fileRead": "[parameters('Custom-events-trigger_properties_Storage_Cloud_Test_parameters_fileRead')]",
+							"filewritten": "[parameters('Custom-events-trigger_properties_Storage_Cloud_Test_parameters_filewritten')]"
+						}
 					}
 				],
 				"type": "CustomEventsTrigger",
@@ -3140,8 +3149,7 @@
 					"subjectBeginsWith": "",
 					"scope": "[parameters('Custom-events-trigger_properties_typeProperties_scope')]",
 					"events": [
-						"copyCompleted",
-						"copySucceeded"
+						"Successfully uploaded blob(s)"
 					]
 				}
 			},
