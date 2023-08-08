@@ -1822,10 +1822,12 @@
 				},
 				"parameters": {
 					"fileRead": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "abcd.csv"
 					},
 					"filewritten": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "abcd.csv"
 					}
 				},
 				"annotations": [],
@@ -3149,7 +3151,7 @@
 					"subjectBeginsWith": "",
 					"scope": "[parameters('Custom-events-trigger_properties_typeProperties_scope')]",
 					"events": [
-						"Successfully uploaded blob(s)"
+						"Successfully uploaded"
 					]
 				}
 			},
