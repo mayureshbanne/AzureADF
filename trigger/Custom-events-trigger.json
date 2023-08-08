@@ -8,6 +8,10 @@
 				"pipelineReference": {
 					"referenceName": "Storage_Cloud_Test",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"fileRead": "@triggerBody().event.data.fileRead",
+					"filewritten": "@triggerBody().event.data.fileWritten"
 				}
 			}
 		],
