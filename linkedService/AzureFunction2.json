@@ -1,0 +1,15 @@
+{
+	"name": "AzureFunction2",
+	"properties": {
+		"annotations": [],
+		"type": "AzureFunction",
+		"typeProperties": {
+			"functionAppUrl": "https://adfconnectionaf.azurewebsites.net",
+			"authentication": "Anonymous"
+		},
+		"connectVia": {
+			"referenceName": "SHIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
