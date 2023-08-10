@@ -14,6 +14,9 @@
 		"AzureFunction1_functionKey": {
 			"value": ""
 		},
+		"AzureFunction2_functionKey": {
+			"value": ""
+		},
 		"AzurePostgreSql1_connectionString": {
 			"value": ""
 		},
@@ -52,6 +55,9 @@
 		},
 		"AzureFunction1_properties_typeProperties_functionAppUrl": {
 			"value": "https://rdtestingpoctraining.azurewebsites.net"
+		},
+		"AzureFunction2_properties_typeProperties_functionAppUrl": {
+			"value": "https://adfconnectionaf.azurewebsites.net"
 		},
 		"AzureKeyVaultBlobStorage_properties_typeProperties_connectionString_secretName": {
 			"value": "ADF-Testing"
